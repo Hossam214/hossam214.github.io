@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>البحرين</title>
+        <link rel="stylesheet" href="style.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+    <body>
+        <a href="index.html"><img src="Images/Back.png" alt="Back to main page" class="Back"></a>
+        <h1>البحرين </h1>
+        <h2>العاصمة:</h2> <p>المنامة</p>
+        <h2>التعداد السكاني:</h2> <p>حوالي 1.6 مليون نسمة</p> 
+        <h2>المساحة:</h2> <p> 786.8 كم²</p>
+        <h2>العملة:</h2> <p>الدينار البحريني</p>
+        <h2>العادات والتقاليد:</h2> 
+        <ol>
+            <li>الفجري (الغناء البحري)</li>
+            <li>صيد اللؤلؤ التقليدي</li>
+            <li>سباق الخيل والهجن</li>
+            <li>الأعراس البحرينية التقليدية</li>
+            <li>الحرف اليدوية</li>
+        </ol>
+        <h2>شخصيات مشهورة:</h2>
+        <ul>
+            <li>قراء القرآن</li>
+            <ol>
+                <li>خليفة الطنيجي</li>
+                <li>عبدالله البريمي</li>
+            </ol>
+            <li>الأدباء</li>
+            <ol>
+                <li>قاسم حداد</li>
+                <li>أمين صالح</li>
+            </ol>
+            <li>الرياضة</li>
+            <ol>
+                <li>محمد حبيب</li>
+                <li>علي مدن</li>
+            </ol>
+        </ul>
+        <div class="flag-container">
+            <div class="flag-mask" id="flagMask">
+            <img src="Images/BahrainFlag.png"
+                class="flag" id="flagImg" alt="Flag">
+            </div>
+        </div>
+        <script>
+            const flagMask = document.getElementById("flagMask");
+            const flagImg = document.getElementById("flagImg");
+
+            // Wait until flag image is loaded to know its height
+            flagImg.addEventListener("load", () => {
+            const flagHeight = flagImg.getBoundingClientRect().height;
+
+            window.addEventListener("scroll", () => {
+                const scrollTop = window.scrollY;
+                const scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
+                const scrollPercent = scrollTop / scrollHeight;
+
+                // reveal proportional part of the flag
+                const revealHeight = flagHeight * scrollPercent;
+                flagMask.style.height = revealHeight + "px";
+            });
+            });
+        </script>
+
+        <br><br><br><br><br><br>
+    </body>
+</html>

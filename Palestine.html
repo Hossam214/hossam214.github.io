@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>فلسطين</title>
+        <link rel="stylesheet" href="style.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+    <body>
+        <img src="Images/PalestineStamp.png" alt="FreePalestine" class="PalestineStamp">
+        <a href="index.html"><img src="Images/Back.png" alt="Back to main page" class="Back"></a>
+        <h1>فلسطين</h1>
+        <h2>العاصمة:</h2> <p>القدس</p>
+        <h2>التعداد السكاني:</h2> <p>حوالي 5.6 مليون نسمة</p> 
+        <h2>المساحة:</h2> <p> 27,000 ألف كم² بما في ذلك الأراضي المحتلة</p>
+        <h2>العملة:</h2> <p>الشيكل الإسرائيلي</p>
+        <h2>العادات والتقاليد:</h2> 
+        <ol>
+            <li>الدبكة الفلسطينية</li>
+            <li>التطريز الفلسطيني (الثوب الفلسطيني)</li>
+            <li>الزيتون والتين رموز فلسطينية</li>
+            <li>المقامات الصوفية</li>
+        </ol>
+        <h2>شخصيات مشهورة:</h2>
+        <ul>
+            <li>قراء القرآن</li>
+            <ol>
+                <li>محمد رشاد الشريف</li>
+                <li>عز الدين عمارنة</li>
+            </ol>
+            <li>الأدباء</li>
+            <ol>
+                <li>غسان كنفاني</li>
+                <li>محمود درويش</li>
+            </ol>
+            <li>النضال</li>
+            <ol>
+                <li>ياسر عرفات</li>
+                <li>أحمد ياسين</li>
+            </ol>
+        </ul>
+        <div class="flag-container">
+            <div class="flag-mask" id="flagMask">
+            <img src="Images/PalestineFlag.png"
+                class="flag" id="flagImg" alt="Flag">
+            </div>
+        </div>
+        <script>
+            const flagMask = document.getElementById("flagMask");
+            const flagImg = document.getElementById("flagImg");
+
+            // Wait until flag image is loaded to know its height
+            flagImg.addEventListener("load", () => {
+            const flagHeight = flagImg.getBoundingClientRect().height;
+
+            window.addEventListener("scroll", () => {
+                const scrollTop = window.scrollY;
+                const scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
+                const scrollPercent = scrollTop / scrollHeight;
+
+                // reveal proportional part of the flag
+                const revealHeight = flagHeight * scrollPercent;
+                flagMask.style.height = revealHeight + "px";
+            });
+            });
+            window.addEventListener("scroll", function() {
+                let scrollPosition = window.scrollY + window.innerHeight;
+                let pageHeight = document.documentElement.scrollHeight;
+
+                if (scrollPosition >= pageHeight) {
+                    alert("!فلسطين حرة");
+                }
+            });
+            </script>
+        <br><br><br><br><br><br>
+    </body>
+</html>
